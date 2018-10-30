@@ -1,5 +1,5 @@
 // dependencies
-var express = reqire("express");
+var express = require("express");
 
 // models
 var db = require("./app/models")
@@ -15,10 +15,11 @@ app.use(express.json());
 // static files from public folder
 app.use(express.static("public"));
 
-// routes
-require("./app/routes/htmlRoutes.js")(app);
-require("./app/routes/apiRoutes.js")(app);
+// // routes
+// require("./app/routes/htmlRoutes.js")(app);
+// require("./app/routes/apiRoutes.js")(app);
 
+// sync db and start server
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
         console.log("app listening on http://localhost:" + PORT)
